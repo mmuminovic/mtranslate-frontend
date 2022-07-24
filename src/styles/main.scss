@@ -1,0 +1,21 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+@import 'base.scss';
+@import 'components.scss';
+@import 'utility.scss';
+
+.form-control {
+  font-size: 16px !important;
+}
+
+:export {
+  primary: $color-primary;
+  secondary: $color-secondary;
+  incorrect: $color-incorrect;
+  danger: $color-danger;
+  red: $color-red;
+  correct: $color-correct;
+  white: $color-white;
+  black: $color-black;
+  yellow: $color-yellow;
+}
