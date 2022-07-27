@@ -1,7 +1,7 @@
 {
     "name": "pitajucene-quiz-frontend",
     "version": "0.1.0",
-    "homepage": "./",
+    "homepage": "https://mmuminovic.github.io/mtranslate-frontend",
     "start_url": "/",
     "private": true,
     "dependencies": {
@@ -41,7 +41,9 @@
         "dev": "NODE_ENV=development && react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -57,5 +59,8 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "gh-pages": "^4.0.0"
     }
 }
