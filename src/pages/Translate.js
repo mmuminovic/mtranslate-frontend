@@ -15,7 +15,7 @@ const Translate = () => {
   const [translateToData, setTranslateToData] = useState({});
   const [successMessage, setSuccessMessage] = useState(false);
 
-  const { data = { languageData: [] } } = useQuery('getAppData', () => getAppData(appId), {
+  const { data = { languageData: [] } } = useQuery(['getAppData', appId], () => getAppData(appId), {
     refetchOnWindowFocus: false,
     refetchOnMount: false,
     refetchOnReconnect: false,

@@ -13,7 +13,11 @@ const Homepage = () => {
     <div className="wrapper">
       <div className="home">
         {data.map((item) => (
-          <HomeButton text={item.name} onClick={() => history.push('/translate', { id: item.id, name: item.name })} />
+          <HomeButton
+            key={item.id}
+            text={item.name}
+            onClick={() => history.push('/translate', { id: item.id, name: item.name })}
+          />
         ))}
       </div>
     </div>
