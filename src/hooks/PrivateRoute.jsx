@@ -1,8 +1,8 @@
 import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Navigate, Route } from 'react-router-dom';
 
 export const PrivateRoute = ({ component, isAuthenticated, redirectTo, ...rest }) => {
-  const routeComponent = (props) =>
-    isAuthenticated ? React.createElement(component, props) : <Redirect to={{ pathname: redirectTo }} />;
-  return <Route {...rest} render={routeComponent} />;
+  const RouteComponent = (props) =>
+    isAuthenticated ? React.createElement(component, props) : <Navigate to={redirectTo} replace />;
+  return <Route {...rest} element={<RouteComponent />} />;
 };

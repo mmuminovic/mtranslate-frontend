@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Input, Label, Form, FormGroup } from 'reactstrap';
 import { Formik } from 'formik';
 import { Input as InputIcon } from '@material-ui/icons';
@@ -12,11 +12,11 @@ import { login } from '../services/user';
 import Loader from '../components/Spinner';
 
 const Login = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [error, setError] = useState('');
   const [doAuth, { isLoading }] = useMutation((values) => login(values), {
     onSuccess: () => {
-      history.replace('/');
+      navigate.replace('/');
     },
     onError: (error) => {
       setError(error.message);

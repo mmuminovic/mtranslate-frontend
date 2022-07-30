@@ -1,15 +1,15 @@
 import React from 'react'
 import { Button } from 'reactstrap'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Message = ({ children }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
     return (
         <div className="center-xy fd-col">
             <div className="message">Greška na serveru. Pokušajte ponovo.</div>
             <Button
                 style={{ marginTop: '16px' }}
-                onClick={() => history.push('/')}
+                onClick={() => navigate('/')}
             >
                 Vrati se na početnu
             </Button>

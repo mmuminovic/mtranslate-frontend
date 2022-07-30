@@ -1,11 +1,11 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import HomeButton from '../components/HomeButton';
 import { useQuery } from 'react-query';
 import { getAllApps } from '../services/application';
 
 const Homepage = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const { data = [] } = useQuery('getAllAppsForUser', () => getAllApps());
 
@@ -16,7 +16,7 @@ const Homepage = () => {
           <HomeButton
             key={item.id}
             text={item.name}
-            onClick={() => history.push('/translate', { id: item.id, name: item.name })}
+            onClick={() => navigate('/translate', { state: { id: item.id, name: item.name } })}
           />
         ))}
       </div>

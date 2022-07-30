@@ -63,6 +63,7 @@ const Translate = () => {
           <select id="points" name="points" value={translateFrom} onChange={(e) => setTranslateFrom(e.target.value)}>
             <option value={''}>-- Izaberi jezik s kojeg prevodiš --</option>
             {data &&
+              data.languageData &&
               data.languageData.map((item, i) => (
                 <option key={i} value={item.id}>
                   {item.name}
@@ -71,11 +72,13 @@ const Translate = () => {
           </select>
           <select id="points" name="points" value={translateTo} onChange={(e) => setTranslateTo(e.target.value)}>
             <option value={''}>-- Izaberi jezik na koji radiš prevod --</option>
-            {data.languageData.map((item, i) => (
-              <option key={i} value={item.id}>
-                {item.name}
-              </option>
-            ))}
+            {data &&
+              data.languageData &&
+              data.languageData.map((item, i) => (
+                <option key={i} value={item.id}>
+                  {item.name}
+                </option>
+              ))}
           </select>
         </div>
         <Formik

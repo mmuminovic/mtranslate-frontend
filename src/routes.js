@@ -6,12 +6,12 @@ import Translate from './pages/Translate';
 export const USER_ROUTES = {
   homepage: {
     path: '/',
-    component: Homepage,
+    element: Homepage,
     isExact: true,
   },
   translate: {
     path: '/translate',
-    component: Translate,
+    element: Translate,
     isExact: true,
   },
 };

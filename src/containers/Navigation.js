@@ -1,12 +1,12 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navbar, Nav, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap';
 import { authSlice } from '../store/authSlice';
 import { Menu } from '@material-ui/icons';
 
 const Navigation = () => {
-  const history = useHistory();
+  const history = useNavigate();
   const dispatch = useDispatch();
   const authState = useSelector((state) => state.auth);
 
@@ -56,7 +56,7 @@ const Navigation = () => {
       {authState.token ? (
         <div className="navigation">
           <Navbar expand="xs">
-            <NavbarText onClick={() => history.push('/')} style={{ cursor: 'pointer' }}>
+            <NavbarText onClick={() => history('/')} style={{ cursor: 'pointer' }}>
               mTranslate
             </NavbarText>
             <Nav className="ml-auto" navbar>
@@ -78,7 +78,7 @@ const Navigation = () => {
                 <DropdownMenu right>
                   <DropdownItem
                     onClick={() => {
-                      history.push('/');
+                      history('/');
                     }}
                   >
                     Početna
