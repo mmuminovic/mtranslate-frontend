@@ -1,6 +1,9 @@
 {
-    "name": "mtranslate-frontend",
-    "version": "1.0.0",
+    "name": "pitajucene-quiz-frontend",
+    "version": "0.1.0",
+    "homepage": "./",
+    "start_url": "/",
+    "private": true,
     "engines": {
         "node": "12.22.12"
     },
