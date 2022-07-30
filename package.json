@@ -32,17 +32,16 @@
         "recharts": "^2.0.8",
         "redux": "^4.0.5",
         "redux-thunk": "^2.3.0",
-        "serve": "^14.0.1",
         "socket.io-client": "^4.4.0",
         "styled-components": "^5.1.1",
         "use-socketio": "^2.0.3",
         "yup": "^0.29.3"
     },
     "scripts": {
-        "dev": "react-scripts start",
-        "start": "serve -s build",
+        "start": "react-scripts start",
+        "dev": "NODE_ENV=development && react-scripts start",
         "build": "react-scripts build",
-        "heroku-postbuild": "npm run build",
+        "test": "react-scripts test",
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build"
