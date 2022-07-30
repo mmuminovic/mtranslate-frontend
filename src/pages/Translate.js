@@ -36,7 +36,7 @@ const Translate = () => {
   });
 
   const [saveChanges, { isLoading: isSavingChanges }] = useMutation(
-    ({ data }) => saveLanguageData(translateTo + '1', data),
+    ({ data }) => saveLanguageData(translateTo, data),
     {
       onSuccess: (res) => {
         setSuccessMessage(true);
