@@ -1,9 +1,7 @@
 {
-    "name": "pitajucene-quiz-frontend",
-    "version": "0.1.0",
-    "homepage": "https://mmuminovic.github.io/mtranslate-frontend",
+    "name": "mtranslate-frontend",
+    "version": "1.0.0",
     "start_url": "/",
-    "private": true,
     "engines": {
         "node": "12.22.12"
     },
@@ -34,16 +32,17 @@
         "recharts": "^2.0.8",
         "redux": "^4.0.5",
         "redux-thunk": "^2.3.0",
+        "serve": "^14.0.1",
         "socket.io-client": "^4.4.0",
         "styled-components": "^5.1.1",
         "use-socketio": "^2.0.3",
         "yup": "^0.29.3"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "dev": "NODE_ENV=development && react-scripts start",
+        "dev": "react-scripts start",
+        "start": "serve -s build",
         "build": "react-scripts build",
-        "test": "react-scripts test",
+        "heroku-postbuild": "npm run build",
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build"
