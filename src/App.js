@@ -14,7 +14,7 @@ function App() {
 
   return (
     // <SocketIOProvider url={process.env.REACT_APP_SOCKETIO_URL}>
-    <BrowserRouter basename="/">
+    <BrowserRouter>
       <Navigation />
       <Switch>
         <Route exact path="/login" component={Login} />

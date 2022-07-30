@@ -1,7 +1,6 @@
 {
     "name": "mtranslate-frontend",
     "version": "1.0.0",
-    "start_url": "/",
     "engines": {
         "node": "12.22.12"
     },
