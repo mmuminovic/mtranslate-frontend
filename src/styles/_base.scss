@@ -1,0 +1,31 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 16px; //1 rem = 10px; 10px/16px = 62.5%
+}
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
+body {
+  & > * {
+    font-family: 'Roboto Slab', serif !important;
+  }
+
+  box-sizing: border-box;
+  background-color: $color-tertiary;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-selected;
+  color: $color-white;
+}
