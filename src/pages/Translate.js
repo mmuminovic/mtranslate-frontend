@@ -80,8 +80,9 @@ const Translate = () => {
             ))}
           </select>
         </div>
-        <div className="center-x">
+        <div className="center-xy">
           <Checkbox checked={showOnlyEmpty} onChange={(e) => setShowOnlyEmpty(e.target.checked)} />
+          <span>Prikazi samo neprevedeno</span>
         </div>
         <Formik
           enableReinitialize
@@ -106,9 +107,6 @@ const Translate = () => {
                     return true;
                   })
                   .map((item) => {
-                    if (!translateToData[item]) {
-                      console.log({ item });
-                    }
                     return (
                       <div key={item} className="translate__block">
                         <p>{translateFromData[item]}</p>
