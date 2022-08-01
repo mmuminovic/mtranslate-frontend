@@ -1,11 +1,12 @@
 {
-    "name": "pitajucene-quiz-frontend",
+    "name": "mtranslate-frontend",
     "version": "0.1.0",
     "homepage": "./",
     "start_url": "/",
     "private": true,
     "engines": {
-        "node": "12.22.12"
+        "node": "12.22.12",
+        "npm": "6.14.16"
     },
     "dependencies": {
         "@material-ui/core": "^4.11.0",
@@ -40,7 +41,7 @@
         "yup": "^0.29.3"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "n exec 12 react-scripts start",
         "dev": "NODE_ENV=development && react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
