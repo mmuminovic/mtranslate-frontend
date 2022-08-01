@@ -4,6 +4,7 @@ import { useMutation, useQuery } from 'react-query';
 import { getAppData, getLanguageDataForApp, saveLanguageData } from '../services/application';
 import ButtonComponent from '../components/Button';
 import { Formik } from 'formik';
+import { Checkbox } from '@material-ui/core';
 
 const Translate = () => {
   const location = useLocation();
@@ -14,6 +15,7 @@ const Translate = () => {
   const [translateFromData, setTranslateFromData] = useState({});
   const [translateToData, setTranslateToData] = useState({});
   const [successMessage, setSuccessMessage] = useState(false);
+  const [showOnlyEmpty, setShowOnlyEmpty] = useState(false);
 
   const { data = { languageData: [] } } = useQuery(['getAppData', appId], () => getAppData(appId), {
     refetchOnWindowFocus: false,
@@ -59,7 +61,7 @@ const Translate = () => {
       <div>
         {successMessage && <div className="translate__notification">Sačuvano</div>}
         <div className="center-x">{appName}</div>
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '36px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
           <select id="points" name="points" value={translateFrom} onChange={(e) => setTranslateFrom(e.target.value)}>
             <option value={''}>-- Izaberi jezik s kojeg prevodiš --</option>
             {data &&
@@ -78,6 +80,9 @@ const Translate = () => {
             ))}
           </select>
         </div>
+        <div className="center-x">
+          <Checkbox checked={showOnlyEmpty} onChange={(e) => setShowOnlyEmpty(e.target.checked)} />
+        </div>
         <Formik
           enableReinitialize
           initialValues={translateToData}
@@ -89,12 +94,28 @@ const Translate = () => {
           {({ values, errors, touched, handleChange, handleBlur, handleSubmit }) => (
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div className="translate">
-                {Object.keys(translateFromData).map((item) => (
-                  <div key={item} className="translate__block">
-                    <p>{translateFromData[item]}</p>
-                    <textarea id={item} name={item} value={values[item]} onChange={handleChange} />
-                  </div>
-                ))}
+                {Object.keys(translateFromData)
+                  .filter((item) => {
+                    if (showOnlyEmpty) {
+                      if (!translateToData[item]) {
+                        return true;
+                      } else {
+                        return false;
+                      }
+                    }
+                    return true;
+                  })
+                  .map((item) => {
+                    if (!translateToData[item]) {
+                      console.log({ item });
+                    }
+                    return (
+                      <div key={item} className="translate__block">
+                        <p>{translateFromData[item]}</p>
+                        <textarea id={item} name={item} value={values[item]} onChange={handleChange} />
+                      </div>
+                    );
+                  })}
               </div>
               <div className="center-x pt-2">
                 <ButtonComponent
